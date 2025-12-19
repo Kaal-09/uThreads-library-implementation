@@ -1,0 +1,38 @@
+[
+{
+  "directory": "C:/Users/saksh/OneDrive/Desktop/uThreads/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/uthread.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\uthread.dir\\src\\uthread.cpp.obj -c C:\\Users\\saksh\\OneDrive\\Desktop\\uThreads\\src\\uthread.cpp",
+  "file": "C:/Users/saksh/OneDrive/Desktop/uThreads/src/uthread.cpp",
+  "output": "CMakeFiles/uthread.dir/src/uthread.cpp.obj"
+},
+{
+  "directory": "C:/Users/saksh/OneDrive/Desktop/uThreads/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/uthread.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\uthread.dir\\src\\scheduler.cpp.obj -c C:\\Users\\saksh\\OneDrive\\Desktop\\uThreads\\src\\scheduler.cpp",
+  "file": "C:/Users/saksh/OneDrive/Desktop/uThreads/src/scheduler.cpp",
+  "output": "CMakeFiles/uthread.dir/src/scheduler.cpp.obj"
+},
+{
+  "directory": "C:/Users/saksh/OneDrive/Desktop/uThreads/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/uthread.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\uthread.dir\\src\\context.cpp.obj -c C:\\Users\\saksh\\OneDrive\\Desktop\\uThreads\\src\\context.cpp",
+  "file": "C:/Users/saksh/OneDrive/Desktop/uThreads/src/context.cpp",
+  "output": "CMakeFiles/uthread.dir/src/context.cpp.obj"
+},
+{
+  "directory": "C:/Users/saksh/OneDrive/Desktop/uThreads/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/uthread.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\uthread.dir\\src\\sync.cpp.obj -c C:\\Users\\saksh\\OneDrive\\Desktop\\uThreads\\src\\sync.cpp",
+  "file": "C:/Users/saksh/OneDrive/Desktop/uThreads/src/sync.cpp",
+  "output": "CMakeFiles/uthread.dir/src/sync.cpp.obj"
+},
+{
+  "directory": "C:/Users/saksh/OneDrive/Desktop/uThreads/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/uthread.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\uthread.dir\\src\\ipc.cpp.obj -c C:\\Users\\saksh\\OneDrive\\Desktop\\uThreads\\src\\ipc.cpp",
+  "file": "C:/Users/saksh/OneDrive/Desktop/uThreads/src/ipc.cpp",
+  "output": "CMakeFiles/uthread.dir/src/ipc.cpp.obj"
+},
+{
+  "directory": "C:/Users/saksh/OneDrive/Desktop/uThreads/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/demo.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\demo.dir\\examples\\demo.cpp.obj -c C:\\Users\\saksh\\OneDrive\\Desktop\\uThreads\\examples\\demo.cpp",
+  "file": "C:/Users/saksh/OneDrive/Desktop/uThreads/examples/demo.cpp",
+  "output": "CMakeFiles/demo.dir/examples/demo.cpp.obj"
+}
+]

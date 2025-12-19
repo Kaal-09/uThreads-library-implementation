@@ -1,0 +1,4 @@
+C:/Users/saksh/OneDrive/Desktop/uThreads/build/CMakeFiles/uthread.dir
+C:/Users/saksh/OneDrive/Desktop/uThreads/build/CMakeFiles/demo.dir
+C:/Users/saksh/OneDrive/Desktop/uThreads/build/CMakeFiles/edit_cache.dir
+C:/Users/saksh/OneDrive/Desktop/uThreads/build/CMakeFiles/rebuild_cache.dir

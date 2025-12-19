@@ -1,0 +1,2 @@
+C:\MinGW\bin\ar.exe qc libuthread.a CMakeFiles/uthread.dir/src/uthread.cpp.obj CMakeFiles/uthread.dir/src/scheduler.cpp.obj CMakeFiles/uthread.dir/src/context.cpp.obj CMakeFiles/uthread.dir/src/sync.cpp.obj CMakeFiles/uthread.dir/src/ipc.cpp.obj
+C:\MinGW\bin\ranlib.exe libuthread.a
