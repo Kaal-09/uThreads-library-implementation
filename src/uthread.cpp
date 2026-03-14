@@ -7,6 +7,8 @@ static Schedular schedular;
 static std::vector <TCB> tcbs;
 static std::uint64_t next_id = 1;
 
+const size_t STACK_SIZE = 64 * 1024;
+
 namespace uthread {
     void init() {
         tcbs.reserve(16);
@@ -28,6 +30,8 @@ namespace uthread {
         t.state = ThreadState::READY;
         t.func = func;
         t.arg = arg;
+        t.stack_size = STACK_SIZE;
+        t.stack = malloc(STACK_SIZE);
 
         tcbs.push_back(t);
         schedular.add_thread(&tcbs.back());

@@ -1,5 +1,6 @@
 #include "scheduler.h"
-#include <csetjmp>
+// #include <csetjmp>
+#include <ucontext.h>
 
 static Schedular schedular;
 
@@ -15,9 +16,11 @@ void Schedular::yield(){
     int prev = current;
     current = (current+1)%threads.size();
 
-    if(setjmp(threads[prev]->context) == 0){
-        longjmp(threads[current]->context, 1);
-    }
+    // if(setjmp(threads[prev]->context) == 0){
+    //     longjmp(threads[current]->context, 1);
+    // }
+    swapcontext(&(threads[prev]->context), &threads[current]->context);
+
 }
 
 void Schedular::exit_current() {

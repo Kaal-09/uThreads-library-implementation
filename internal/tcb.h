@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <csetjmp>
+#include <ucontext.h>
 
 enum class ThreadState {
     READY,
@@ -12,7 +13,10 @@ enum class ThreadState {
 struct TCB {
     std::uint64_t id;
     ThreadState state;
-    jmp_buf context;
+    ucontext_t context;
     void (*func)(void*);
     void* arg;
+    bool started;
+    void* stack;
+    size_t stack_size;
 };
