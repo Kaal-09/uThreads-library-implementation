@@ -9,6 +9,11 @@ static std::uint64_t next_id = 1;
 
 const size_t STACK_SIZE = 64 * 1024;
 
+static void thread_trampoline(TCB* tcb){
+    tcb->func(tcb->arg);
+    schedular.exit_current();
+}
+
 namespace uthread {
     void init() {
         tcbs.reserve(16);
@@ -25,21 +30,35 @@ namespace uthread {
     }
 
     thread_t create(void (*func)(void*), void* arg) {
-        TCB t;
+        tcbs.emplace_back();
+        TCB& t = tcbs.back();
+
         t.id = next_id++;
         t.state = ThreadState::READY;
         t.func = func;
         t.arg = arg;
+        t.started = false;
+
         t.stack_size = STACK_SIZE;
         t.stack = malloc(STACK_SIZE);
 
-        tcbs.push_back(t);
-        schedular.add_thread(&tcbs.back());
+        getcontext(&t.context);
+
+        t.context.uc_stack.ss_sp = t.stack;
+        t.context.uc_stack.ss_size = t.stack_size;
+        t.context.uc_link = nullptr;
+
+        makecontext(
+            &t.context,
+            (void(*)())thread_trampoline,
+            1,
+            &t
+        );
 
         return t.id;
     }
     void yield() {
-        schedular.yield();
+        schedular.yield(next_id-1);
     }
 
     void exit() {

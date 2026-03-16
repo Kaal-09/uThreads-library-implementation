@@ -12,7 +12,7 @@ void Schedular::add_thread(TCB* tcb){
     threads.push_back(tcb);
 }
 
-void Schedular::yield(){
+void Schedular::yield(int threads_count){
     int prev = current;
     current = (current+1)%threads.size();
 
