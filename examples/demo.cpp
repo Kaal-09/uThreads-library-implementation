@@ -1,14 +1,41 @@
 #include <iostream>
 #include "uthread/uthread.h"
 
-void worker(void*) {
-    std::cout << "Hello from user thread\n";
+void worker1(void*){
+    int counter = 0;
+
+    while(counter < 5){
+        std::cout << "Thread 1 counter: " << counter << std::endl;
+        counter++;
+        uthread::yield();
+    }
+
     uthread::exit();
 }
 
+void worker2(void*){
+    int counter = 100;
+
+    while(counter < 105){
+        std::cout << "Thread 2 counter: " << counter << std::endl;
+        counter++;
+        uthread::yield();
+    }
+
+    uthread::exit();
+}
+
+
 int main() {
     uthread::init();
-    uthread::create(worker, nullptr);
-    uthread::yield();
+    std::cout << "Creating threads...." << std:: endl;
+    uthread::create(worker1, nullptr);
+    uthread::create(worker2, nullptr);
+    std::cout << "Threads created" << std::endl;
+
+    while(true)
+        uthread::yield();
+
+
     return 0;
 }

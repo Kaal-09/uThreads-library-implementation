@@ -23,8 +23,13 @@ namespace uthread {
         main_thread.state = ThreadState::RUNNING;
         main_thread.func = nullptr;
         main_thread.arg = nullptr;
-
+        main_thread.stack = nullptr;
+        main_thread.stack_size = 0;
+        
         tcbs.push_back(main_thread);
+        TCB* main_thread_ptr = &tcbs[0];
+        getcontext(&main_thread_ptr->context);
+        
         schedular.add_thread(&tcbs[0]);
         schedular.init();
     }
@@ -58,7 +63,7 @@ namespace uthread {
         return t.id;
     }
     void yield() {
-        schedular.yield(next_id-1);
+        schedular.yield();
     }
 
     void exit() {

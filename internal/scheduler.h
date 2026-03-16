@@ -7,7 +7,7 @@ class Schedular {
     public:
         void init();
         void add_thread(TCB* tcb);
-        void yield(int threads_count);
+        void yield();
         void exit_current();
 
     private:
