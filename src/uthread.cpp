@@ -59,6 +59,7 @@ namespace uthread {
             1,
             &t
         );
+        schedular.add_thread(&t);
 
         return t.id;
     }

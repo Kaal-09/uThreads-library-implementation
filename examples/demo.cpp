@@ -25,17 +25,21 @@ void worker2(void*){
     uthread::exit();
 }
 
-
-int main() {
+void two_thread_working_alive(){
     uthread::init();
     std::cout << "Creating threads...." << std:: endl;
     uthread::create(worker1, nullptr);
     uthread::create(worker2, nullptr);
     std::cout << "Threads created" << std::endl;
 
-    while(true)
+    while(true){
         uthread::yield();
+    }
+}
 
+int main() {
+    
+    two_thread_working_alive();
 
     return 0;
 }
