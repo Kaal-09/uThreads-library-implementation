@@ -7,6 +7,7 @@
 enum class ThreadState {
     READY,
     RUNNING,
+    BLOCKED,
     FINISHED
 };
 

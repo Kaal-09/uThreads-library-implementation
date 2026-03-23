@@ -17,10 +17,13 @@ void Schedular::yield(){
         return;
 
     int prev = current;
+    if (threads[prev]->state == ThreadState::RUNNING) {
+        threads[prev]->state = ThreadState::READY;
+    }
 
     do {
         current = (current + 1) % threads.size();
-    } while (threads[current]->state == ThreadState::FINISHED);
+    } while (threads[current]->state == ThreadState::FINISHED || threads[current]->state == ThreadState::BLOCKED);
 
     swapcontext(
         &threads[prev]->context,
@@ -28,7 +31,22 @@ void Schedular::yield(){
     );
 }
 
+void Schedular::block_current() {
+    threads[current]->state = ThreadState::BLOCKED;
+    yield();
+}
+
+void Schedular::unblock(TCB* tcb) {
+    if (tcb->state == ThreadState::BLOCKED) {
+        tcb->state = ThreadState::READY;
+    }
+}
+
 void Schedular::exit_current() {
     threads[current]->state = ThreadState::FINISHED;
     yield();
+}
+
+TCB* Schedular::get_current_tcb() {
+    return threads[current];
 }
