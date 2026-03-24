@@ -1,18 +1,9 @@
 #include "uthread/uthread.h"
 #include "scheduler.h"
 #include <queue>
+#include "mutex.h"
 
 static Schedular schedular;
-
-class Mutex {
-    private:
-        bool locked = false;
-        std::queue<TCB*> wait_queue;
-
-    public:
-        void lock();
-        void unlock();
-};
 
 void Mutex::lock() {
     schedular.disable_preemption();
