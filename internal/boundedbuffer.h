@@ -1,3 +1,5 @@
+#pragma once
+
 #include <queue>
 #include "mutex.h"
 #include "conditionvariable.h"

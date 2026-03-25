@@ -10,4 +10,5 @@ namespace uthread {
     void yield();
     void join(thread_t id);
     void exit();
+    void check_preemption();
 }

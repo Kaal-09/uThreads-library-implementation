@@ -40,10 +40,10 @@ T MessageQueue<T>::receive() {
     }
 
     while (q.empty()) {
-        m.lock()
+        m.lock();
         TCB* current = schedular.get_current_tcb();
         waiting_receivers.push(current);
-        m.unlock()
+        m.unlock();
 
         schedular.block_current();
     }

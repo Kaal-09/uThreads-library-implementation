@@ -1,3 +1,5 @@
+#pragma once
+
 #include <queue>
 #include "scheduler.h"
 #include "mutex.h"

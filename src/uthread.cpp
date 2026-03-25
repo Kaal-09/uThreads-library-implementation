@@ -70,4 +70,10 @@ namespace uthread {
     void exit() {
         schedular.exit_current();
     }
+    void check_preemption() {
+        if (schedular.should_preempt()) {
+            schedular.clear_preempt_flag();
+            schedular.yield();
+        }
+    }
 }
