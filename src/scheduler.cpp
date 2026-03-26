@@ -21,7 +21,7 @@ void Schedular::init(){
     struct sigaction sa;
     sa.sa_handler = timer_handler;
     sigemptyset(&sa.sa_mask);
-    sa.sa_flags = SA_NODEFER;
+    // sa.sa_flags = SA_NODEFER;
 
     sigaction(SIGALRM, &sa, nullptr);
 
